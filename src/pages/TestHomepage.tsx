@@ -1,14 +1,12 @@
 
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
-import BackgroundMusic from "../components/BackgroundMusic";
 
-export default function Home() {
+export default function TestHomepage() {
   return (
     <div className="page center">
 
       <img src={logo} alt="Alt text" width="200" height="200" className="center logo"></img>
-      <BackgroundMusic />
       <h1>Project Dice</h1>
 
       <span><p>This page is still WIP. Please go to devlog to see the latest content.</p></span>
@@ -16,9 +14,11 @@ export default function Home() {
         <Link to="/devlog">
           <button className="homepageButton">View Devlog</button>
         </Link>
-        <button className="homepageButton wip">WIP 1</button>
-
+        <Link to="/testhomepage">
+          <button className="homepageButton wip">Test: Updated HomePage</button>
+        </Link>
       </span>
+
       <br />
       <span>
         <button className="homepageButton wip">WIP 2</button>

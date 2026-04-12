@@ -25,7 +25,7 @@ export default function BackgroundMusic() {
   };
 
   return (
-    <div>
+    <div className="music-player">
       <button  className="music-button" onClick={toggleMusic}>
         {playing ? "⏸ Pause Funky Music" : " ▶ Play Funky Music"}
       </button>

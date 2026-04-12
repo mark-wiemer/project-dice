@@ -16,6 +16,7 @@ body {
     sans-serif;
   font-size: 18px;
   line-height: 1.5em;
+
   @media (prefers-color-scheme: dark) {
     background-color: hsl(232, 65%, 7%);
     color: #e2dff5;
@@ -32,11 +33,6 @@ h1 {
   font-size: 3em;
 }
 
-div {
-  display: flex;
-  flex-direction: column;
-}
-
 figure {
   margin: 0;
 }
@@ -45,6 +41,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   & hr {
     width: 640px;
   }
@@ -61,16 +58,20 @@ a {
 
   /* See docs/tests.md for link state test matrix */
   color: hsl(235, 68%, 85%);
+
   &:visited {
     color: hsl(245, 8%, 67%);
   }
+
   &:visited:hover {
     outline: 2px solid hsl(245, 8%, 67%);
   }
+
   &:visited:active {
     outline: 2px solid black;
     color: black;
   }
+
   &:active {
     outline: 2px solid black;
     color: black;
@@ -78,19 +79,24 @@ a {
 
   @media (prefers-color-scheme: dark) {
     color: rgb(0, 162, 174);
+
     &:hover {
       outline: 2px solid rgb(0, 162, 174);
     }
+
     &:visited {
       color: rgb(219, 8, 219);
     }
+
     &:visited:hover {
       outline: 2px solid rgb(219, 8, 219);
     }
+
     &:visited:active {
       outline: 2px solid #e2dff5;
       color: #e2dff5;
     }
+
     &:active {
       outline: 2px solid #e2dff5;
       color: #e2dff5;
@@ -102,6 +108,7 @@ div.headerImages {
   flex-direction: row;
   align-items: center;
   column-gap: 1em;
+
   /* Row-gap in case of wraparound */
   row-gap: 1em;
   align-self: center;
@@ -119,23 +126,27 @@ img.headerImage {
 /* Apply to divs to get center margin */
 .article {
   /* margin: 0 auto; */
-  margin: 20px ;
+  margin: 20px;
+
   /* max-width: 640px; */
   @media (max-width: 640px) {
     /* Adjust vertical padding as well, generally "cozier" view */
     padding: 4px;
     max-width: calc(100vw - 24px);
   }
+
   h1 {
     font-weight: 600;
     line-height: 52px;
     text-align: center;
     margin-bottom: 12px;
   }
+
   img {
     max-width: 640px;
     border-radius: 5%;
   }
+
   figure img {
     max-width: 100%;
   }
@@ -145,76 +156,21 @@ img.headerImage {
   margin-top: 2rem;
 }
 
+.markdown :is(h2, h3, h4) {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
 .markdown p {
-  line-height: 1.6;
+  line-height: 1.2;
   text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .markdown code {
   background: #222;
   padding: 0.2em 0.4em;
-}
-
-.dropdown{
-  display: inline-block;
-}
-
-.dropdown button {
-  background-color: hsl(0, 0%, 80%);
-  color: black;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown a{
-  display: block;
-  color: black;
-  text-decoration: none;
-  padding: 10px 15px;
-
-}
-
-.dropdown .content {
-  display: none;
-  position: absolute;
-  background-color: hsl(0, 0%, 95%);
-  min-width: 100px;
-  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.799)
-
-}
-
-.dropdown:hover .content {
-  display: block;
-}
-
-.dropdown:hover button {
-  background-color: hsl(0, 0%, 70%);
-}
-
-.dropdown a:hover {
-  background-color: hsl(0, 0%, 90%);
-
-}
-
-/* Just a test */
-.gradient {
-  background-image: linear-gradient(
-    45deg,
-    hsl(240deg 100% 20%) 0%,
-    hsl(281deg 100% 21%) 8%,
-    hsl(304deg 100% 23%) 17%,
-    hsl(319deg 100% 30%) 25%,
-    hsl(329deg 100% 36%) 33%,
-    hsl(336deg 100% 41%) 42%,
-    hsl(346deg 83% 51%) 50%,
-    hsl(3deg 95% 61%) 58%,
-    hsl(17deg 100% 59%) 67%,
-    hsl(30deg 100% 55%) 75%,
-    hsl(40deg 100% 50%) 83%,
-    hsl(48deg 100% 50%) 92%,
-    hsl(55deg 100% 50%) 100%
-  );
 }
 
 .center {
@@ -249,73 +205,100 @@ body {
   display: flex;
   max-width: 100%;
   width: 1000px;
-  margin: auto;
-  padding-top: 20px;             /* Push the content down from the top of the page */
+  /* margin: auto; */
+  padding-top: 20px;
+  /* Push the content down from the top of the page */
 }
 
 
 /* Main container for the collapsible component */
 .collapsible {
   display: block;
-  width: 100%;                   /* Allow it to shrink on smaller screens */
-  font-weight: 500;              /* Slightly heavier than normal text */
+  width: 100%;
+  /* Allow it to shrink on smaller screens */
+  font-weight: 500;
+  /* Slightly heavier than normal text */
 }
 
 
 /* Hide the checkbox input that powers the toggle */
 .collapsible input {
-  display: none;                 /* Completely removes the checkbox from layout */
+  display: none;
+  /* Completely removes the checkbox from layout */
 }
 
 
 /* The clickable header users interact with */
 .collapsible label {
-  display: flex;                /* Makes the label fill the container width */
-  position: relative;            /*Allows positioning of pseudo-elements inside it*/
-  background: hsl(232, 55%, 56%);           /* White card-like background */
-  color: hsl(260, 13%, 95%);              /* Dark blue text */
-  font-weight: 600;              /* Slightly bold header */
-  padding: 15px;                 /* Space inside the label */
-  margin-bottom: 10px;           /*Space below the label*/
-  border-radius: 4px;            /* Slightly rounded corners */
-  cursor: pointer;               /* Show hand cursor on hover */
-  box-shadow: 0 4px 10px hsl(0,0%,85%); /* Soft drop shadow */
-  transition: 0.50s ease;
-  
+  display: flex;
+  /* Makes the label fill the container width */
+  position: relative;
+  /*Allows positioning of pseudo-elements inside it*/
+  background: hsl(232, 55%, 56%);
+  /* White card-like background */
+  color: hsl(260, 13%, 95%);
+  /* Dark blue text */
+  font-weight: 600;
+  /* Slightly bold header */
+  padding: 12px;
+  /* Space inside the label */
+  margin-bottom: 5px;
+  /*Space below the label*/
+  border-radius: 4px;
+  /* Slightly rounded corners */
+  cursor: pointer;
+  /* Show hand cursor on hover */
+  box-shadow: 1px 2px 5px hsl(235, 43%, 79%);
+  /* Soft drop shadow */
+  transition: 0.25s ease;
+
 }
 
 .collapsible label:hover {
-  transform: scale(1.05);
-  background-color: hsl(232, 61%, 63%);  
+  transform: scale(1.01);
+  background-color: hsl(232, 61%, 63%);
 }
 
 
 /* Small arrow icon that appears on the right side */
 .collapsible label::after {
-  content: "›";                  /* Arrow character */
-  position: absolute;            /* Position relative to the label */
-  right: 15px;                   /* Distance from the right edge */
-  top: 50%;                      /* Center vertically */
-  transform: translateY(-50%);   /* Perfect vertical centering */
-  font-size: 22px;               /* Size of arrow */
-  transition: transform 0.3s ease; /* Smooth rotation animation */
+  content: "›";
+  /* Arrow character */
+  position: absolute;
+  /* Position relative to the label */
+  right: 15px;
+  /* Distance from the right edge */
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Perfect vertical centering */
+  font-size: 22px;
+  /* Size of arrow */
+  transition: transform 0.3s ease;
+  /* Smooth rotation animation */
 }
 
 
 /* Rotate arrow when checkbox is checked */
-.collapsible input:checked + label::after {
+.collapsible input:checked+label::after {
   transform: translateY(-50%) rotate(90deg);
 }
 
 
 /* Hidden content section */
 .collapsible-text {
-  max-height: 0;                 /*Start collapsed */
-  overflow: hidden;              /* Hide overflowing content */
-  opacity: 0;                    /* Slight fade effect while hidden */
-  background: hsl(232, 55%, 56%);           /* White card background */
-  border-radius: 4px;            /* Match label styling */
-  line-height: 1.5;              /* Comfortable paragraph spacing */
+  max-height: 0;
+  /*Start collapsed */
+  overflow: hidden;
+  /* Hide overflowing content */
+  opacity: 0;
+  /* Slight fade effect while hidden */
+  background: hsl(232, 55%, 56%);
+  /* White card background */
+  border-radius: 4px;
+  /* Match label styling */
+  line-height: 1.5;
+  /* Comfortable paragraph spacing */
 
   /* Animate expansion and fade */
   transition:
@@ -327,40 +310,44 @@ body {
 
 
 /* Expand the text when checkbox is checked */
-.collapsible input:checked ~ .collapsible-text {
-  max-height: 3000px;             /*Expand container */
-  opacity: 1;                    /* Fully visible */
-  padding-bottom: 20px;          /* Add breathing room at bottom */
-  opacity: 1; 
+.collapsible input:checked~.collapsible-text {
+  max-height: 3000px;
+  /*Expand container */
+  opacity: 1;
+  /* Fully visible */
+  padding-bottom: 20px;
+  /* Add breathing room at bottom */
+  opacity: 1;
 }
 
 
 
 /* Heading inside expanded content */
 .collapsible-text h2 {
-  padding: 15px 15px 0;          /* Padding top and sides */
-  margin-bottom: 10px;           /* Space below heading */
-  color: hsl(260, 13%, 95%);                /* Same dark blue as label */
+  padding: 15px 15px 0;
+  /* Padding top and sides */
+  margin-bottom: 10px;
+  /* Space below heading */
+  color: hsl(260, 13%, 95%);
+  /* Same dark blue as label */
 }
 
 
 /* Paragraph text inside collapsible */
 .collapsible-text p {
-  padding: 0 15px;               /* Side padding for readability */
+  padding: 0 15px;
+  /* Side padding for readability */
 }
 
-.page h1, p {
+/* .page h1, p {
   text-align: center;
-}
-
-
-
+} */
 
 .homepageButton {
   height: 200px;
   width: 400px;
   margin: 5px;
-  background-color: hsl(232, 55%, 56%); 
+  background-color: hsl(232, 55%, 56%);
   color: white;
   border-radius: 10px;
   border: solid white 2px;
@@ -371,16 +358,21 @@ body {
 }
 
 .homepageButton:hover {
-  
   transform: scale(1.05);
-  background-color: hsl(232, 61%, 63%);  
+  background-color: hsl(232, 61%, 63%);
+}
+
+.music-player {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
 .music-button {
-  display: block;
   color: rgb(253, 253, 253);
   text-align: center;
-  width:300px;
+  width: 300px;
   font-size: 20px;
   padding: 8px 14px;
   cursor: pointer;
@@ -388,7 +380,166 @@ body {
   margin: 0 auto;
 }
 
-
 .wip {
   cursor: not-allowed;
+}
+
+
+
+.page-content {
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  /* font-family: Aptos; */
+  /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif */
+  /* font-family: "Noto Sans Meroitic"; */
+  /* font-family: "Fira Sans", sans-serif; */
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar {
+  display: inline-block;
+  font-weight: 400;
+  border: 1px solid black;
+  width: 100%;
+}
+
+
+.eyeballs {
+  position: fixed;
+  bottom: 20px;
+  right: 0px;
+  transform: translateX(50%);
+  display: flex;
+  width: 150px;
+  overflow: hidden;
+  /* outline: 1px solid red; */
+}
+
+.eyeballs:hover {
+  /* transform: translateX(70%) ; */
+  cursor: pointer;
+}
+
+.eyeballs img {
+  width: 75px;
+  transition: transform 0.8s ease;
+  transform: translateX(0%);
+}
+
+.eyeballs:hover img {
+  margin-left: 0;
+  transform: translateX(100%);
+  transition: transform 0.25s ease
+}
+
+.eyeballs:active img {
+  transform: translateX(0%) rotateY(180deg);
+  transition: transform .25s ease
+}
+
+/* .eyeballs:active {
+  transform: rotateY(180deg);
+} */
+
+
+/* Navigation bar styling */
+.navbar ul {
+  list-style-type: none;
+  background-color: hsl(232, 45%, 37%);
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  border-radius: 5px;
+
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: hsl(232, 65%, 27%);
+  color: hsl(234, 97%, 89%);
+  border: 1px solid black;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li .mystery {
+  color: hsl(232, 45%, 37%);
+}
+
+.main {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: 300;
+}
+
+.highlight {
+  color: hsl(232, 90%, 75%);
+  /* pick your color */
+}
+
+.right {
+  margin-left: auto;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* vertically align */
+  gap: 10px;
+  /* space between img and text */
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown button {
+  background-color: hsl(0, 0%, 80%);
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+
+}
+
+.dropdown .content {
+  display: none;
+  position: absolute;
+  background-color: hsl(0, 0%, 95%);
+  min-width: 100px;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.799)
+}
+
+.dropdown:hover .content {
+  display: block;
+}
+
+.dropdown:hover button {
+  background-color: hsl(0, 0%, 70%);
+}
+
+.dropdown a:hover {
+  background-color: hsl(0, 0%, 90%);
+
 }
