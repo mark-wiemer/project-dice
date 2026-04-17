@@ -543,3 +543,60 @@ body {
   background-color: hsl(0, 0%, 90%);
 
 }
+
+.card {
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+  background-color: hsl(231, 41%, 28%);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;;
+}
+
+.card:hover {
+background-color: hsl(231, 41%, 28%);
+box-shadow: 5px 5px 5px hsla(236, 22%, 87%, 0.2);
+transform: scale(1.05);
+cursor: pointer;
+}
+
+.card p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.card-top {
+border-radius: 3px;
+height: 10%;
+font-weight: 600;
+font-size: 1.5em;
+margin-left: 5px;
+margin-top: 5px;
+margin-bottom: .25em;
+}
+
+.card-image {
+  max-height: 40%;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 5px auto;
+  object-fit: cover;  
+}
+
+.card-bottom {
+  padding: 5px;
+  border: 1px solid hsl(233, 62%, 44%);
+  border-radius: 3px;
+  height: 50%;
+  background-color: hsl(233, 70%, 53%);
+}
+
+.card-container {
+  display: flex;
+  gap: 20px; /* space between cards */
+  flex-wrap: wrap;
+}
